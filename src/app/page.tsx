@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import Hero from '@/components/Home'
 import Navbar from '@/components/Navbar'
 import { OurJourney } from '@/components/OurJourney'
@@ -11,6 +12,7 @@ export default function page() {
       <Hero />
       <OurJourney />
       <Services />
+      <Footer />
 
     </div>
   )
