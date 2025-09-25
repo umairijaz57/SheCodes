@@ -1,3 +1,4 @@
+"use client"
 import { journeySteps } from "@/constant/journeySteps"
 import { FadeIn } from "./FadeIn"
 import { SlidingDiv } from "./SlidingDiv"
