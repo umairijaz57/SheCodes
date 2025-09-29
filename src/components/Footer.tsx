@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Top Section */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: -40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
@@ -34,8 +34,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
           {/* Quick Links */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0}}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-lg font-semibold text-purple-400 mb-3">Quick Links</h3>
@@ -49,9 +49,9 @@ export default function Footer() {
 
           {/* Services */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, }}
           >
             <h3 className="text-lg font-semibold text-purple-400 mb-3">Services</h3>
             <ul className="space-y-2">
@@ -64,8 +64,8 @@ export default function Footer() {
 
           {/* Contact */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0}}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-lg font-semibold text-purple-400 mb-3">Contact</h3>

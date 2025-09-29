@@ -30,7 +30,7 @@ const services = [
 
 export default function Services() {
   return (
-    <div className="relative py-16 bg-white">
+    <div className=" py-16 bg-white">
         <h1 className="text-center p-6 font-bold text-3xl">OUR SERVICES</h1>
         <div className="absolute left-1/2 w-1 bg-purple-400 min-h-[520px] rounded-2xl transform "></div>
       {/* Vertical line in center */}
@@ -39,8 +39,8 @@ export default function Services() {
             {services.map((service, i) => (
             <motion.div
                 key={i}
-                initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: i % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 viewport={{ once: true }}
                 className={`relative p-6 bg-white shadow-lg rounded-2xl border border-gray-100`}

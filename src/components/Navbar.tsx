@@ -2,9 +2,28 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Services from './Services';
+import Link from 'next/link';
 
 function Navbar() {
-    const Options = ["Home", "About", "Services", "Contact"];
+    const Options = [
+      {
+        NavOption:"Home",
+        NavLink:"/"
+      },
+      {
+        NavOption:"About"        ,
+        NavLink:"/about"
+      },
+      {
+        NavOption:"Services",
+        NavLink:"/services"
+      },
+      {
+        NavOption:"Contact",
+        NavLink:"/contact"
+      }
+    ]
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -68,7 +87,7 @@ function Navbar() {
                                 whileHover={{ y: -2 }}
                                 transition={{ type: "spring", stiffness: 300 }}
                                 >
-                                {option}
+                                {option.NavOption}
                                 <motion.div 
                                     className="absolute left-0 -bottom-1 h-[2px] w-0 bg-purple-400 transition-all duration-300 group-hover:w-full"
                                     whileHover={{ width: "100%" }}
@@ -152,7 +171,9 @@ function Navbar() {
                 className="text-gray-700 font-medium text-lg cursor-pointer block relative group"
                 whileHover={{ color: "#a855f7" }}
               >
-                {option}
+                <Link href={option.NavLink}>
+                {option.NavOption}
+                </Link>
                 <motion.div
                   className="absolute left-0 bottom-0 h-0.5 bg-purple-400 w-0"
                   whileHover={{ width: "100%" }}
