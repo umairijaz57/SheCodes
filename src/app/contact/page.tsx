@@ -39,7 +39,16 @@ function ContactUs() {
 
   const headline = "Get In Touch";
 
-  const handleSubmit = () => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     console.log("Form submitted:", formData);
     alert("Thank you for your message! We'll get back to you soon.");
     setFormData({ name: "", email: "", subject: "", message: "" });
@@ -61,7 +70,7 @@ function ContactUs() {
     {
       icon: "📍",
       title: "Visit Us",
-      content: "123 Tech Street, Silicon Valley",
+      content: "NUST SEECS, Islamabad",
       description: "CA 94025, United States",
     },
   ];
@@ -175,6 +184,7 @@ function ContactUs() {
                     type="text"
                     name="name"
                     value={formData.name}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none transition-colors"
                     placeholder="Jane Doe"
                   />
@@ -189,6 +199,7 @@ function ContactUs() {
                     type="email"
                     name="email"
                     value={formData.email}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none transition-colors"
                     placeholder="jane@example.com"
                   />
@@ -204,6 +215,7 @@ function ContactUs() {
                   type="text"
                   name="subject"
                   value={formData.subject}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none transition-colors"
                   placeholder="How can we help you?"
                 />
@@ -217,6 +229,7 @@ function ContactUs() {
                   required
                   name="message"
                   value={formData.message}
+                  onChange={handleChange}
                   rows={6}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none transition-colors resize-none"
                   placeholder="Tell us more about your inquiry..."
@@ -225,6 +238,7 @@ function ContactUs() {
 
               <motion.button
                 onClick={handleSubmit}
+                type="button"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
@@ -246,14 +260,19 @@ function ContactUs() {
             Follow Us On Social Media
           </h3>
           <div className="flex justify-center gap-6">
-            {[<Instagram />, <Twitter />, <Facebook />].map((emoji, index) => (
+            {[
+              { icon: <Instagram className="text-purple-600" />, label: "Instagram" },
+              { icon: <Twitter className="text-purple-600" />, label: "Twitter" },
+              { icon: <Facebook className="text-purple-600" />, label: "Facebook" }
+            ].map((social, index) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.2, rotate: 10 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center text-2xl cursor-pointer hover:shadow-xl transition-all duration-300"
+                className="w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:shadow-xl transition-all duration-300"
+                aria-label={social.label}
               >
-                {emoji}
+                {social.icon}
               </motion.div>
             ))}
           </div>
