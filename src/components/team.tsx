@@ -106,7 +106,7 @@ function OurTeam() {
               </motion.div>
 
               {/* Content Side */}
-              <div className={`flex-1 ${index % 2 === 0 ? "md:text-left" : "md:text-right"} text-center`}>
+              <div className={`flex-1 text-center ${index % 2 === 0 ? "md:text-left" : "md:text-right"}`}>
                 <motion.h3
                   variants={fadeInUp}
                   className="text-2xl md:text-3xl font-extrabold mb-2"
@@ -125,20 +125,14 @@ function OurTeam() {
                 
                 <motion.p
                   variants={fadeInUp}
-                  className="text-gray-600 text-base leading-relaxed max-w-xl mx-auto md:mx-0"
+                  className={`text-gray-600 text-base leading-relaxed max-w-xl ${
+                    index % 2 === 0 ? "mx-auto md:mx-0 md:mr-auto" : "mx-auto md:mx-0 md:ml-auto"
+                  }`}
                 >
                   {member.description}
                 </motion.p>
 
-                {/* Decorative Line */}
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "60px" }}
-                  transition={{ delay: 0.5, duration: 0.6 }}
-                  className={`h-1 bg-gradient-to-r from-purple-500 to-purple-600 mt-4 ${
-                    index % 2 === 0 ? "md:mr-auto" : "md:ml-auto"
-                  } mx-auto`}
-                ></motion.div>
+
               </div>
             </motion.div>
           ))}
